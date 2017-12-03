@@ -32,8 +32,12 @@ new_image = change_in_range(t, MIN_HUE, MAX_HUE)
 ```
 
 
+<img src="https://snag.gy/V25svq.jpg" width="200">
+
+will be turn in to
+
+<img src="https://snag.gy/kduXwj.jpg" width="200">
+
+Enjoy with colors
+
 This python package is implemented for an EPFL cognitive science semester course project.
-
-
-![](https://snag.gy/kduXwj.jpg =250x)
-![](https://snag.gy/V25svq.jpg =250x)
