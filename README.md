@@ -1,4 +1,4 @@
-### Hue Changer Package
+### Hue Changer Package [![Build Status](https://travis-ci.org/guemues/hue-changer.svg?branch=master)](https://travis-ci.org/guemues/hue-changer)
 
 You have a colorful image and you want to make it red. This package is for you. There is many more method to turn images to grayscale but there is no other package to turn images to other colors. With this package you can turn images a specific HUE ranges.
 
@@ -9,6 +9,7 @@ You can easily install the package via pip. This package only tested in python 3
 pip intall huechanger
 ```
 
+**change_in_range** method is taking 3 channel numpy array as RGB image and return an RGB image with maximum hue and minumum hue
 
 ```python
 
