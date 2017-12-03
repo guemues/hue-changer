@@ -33,3 +33,7 @@ new_image = change_in_range(t, MIN_HUE, MAX_HUE)
 
 
 This python package is implemented for an EPFL cognitive science semester course project.
+
+
+![](https://snag.gy/kduXwj.jpg =250x)
+![](https://snag.gy/V25svq.jpg =250x)

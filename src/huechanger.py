@@ -29,3 +29,4 @@ if __name__ == "__main__":
     t = cv2.imread('uFPG2T.jpg')
     plt.imshow(change_in_range(t, 10, 30))
     plt.show()
+    print()

@@ -18,7 +18,6 @@ def test_change_hue():
 
     t = cv2.imread(filename)
 
-    os.remove(filename)
 
     MAX_HUE = 30
     MIN_HUE = 10
