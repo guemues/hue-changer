@@ -3,8 +3,6 @@ from cv2.cv2 import COLOR_BGR2HSV, COLOR_BGR2RGB, COLOR_RGB2HSV
 from huechanger import change_in_range
 import requests
 
-import os
-
 
 def test_change_hue():
 
@@ -17,7 +15,6 @@ def test_change_hue():
             f.write(r.content)
 
     t = cv2.imread(filename)
-
 
     MAX_HUE = 30
     MIN_HUE = 10
