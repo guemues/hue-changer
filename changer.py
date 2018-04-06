@@ -10,7 +10,6 @@ use min max and path arguments to specify your demanded.
 
 import argparse
 import huechanger
-import matplotlib.pyplot as plt
 import cv2
 
 from cv2 import COLOR_BGR2RGB
@@ -26,11 +25,11 @@ parser.add_argument('--max', dest='max', type=int, help='360 degree max HUE')
 
 args = parser.parse_args()
 
-min = args.min / 2
-max = args.max / 2
+min = args.min
+max = args.max
 
 t = cv2.imread(args.path)
 t = cv2.cvtColor(t, COLOR_BGR2RGB)
 
-plt.imshow(huechanger.change_in_range(t, min, max))
-plt.savefig(args.opath)
+new_image = huechanger.change_in_range(t, min, max)
+cv2.imwrite(args.opath, new_image)

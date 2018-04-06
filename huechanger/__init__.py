@@ -13,7 +13,6 @@ def change_in_range(texture, min_hue, max_hue):
     :type min_hue: int
     :type texture: ndarray
     """
-
     min_hue = int(min_hue / 2)
     max_hue = int(max_hue / 2)
 
