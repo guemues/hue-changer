@@ -46,6 +46,5 @@ if __name__ == "__main__":
     t = cv2.imread('../uFPG2T.jpg')
     t = cv2.cvtColor(t, COLOR_BGR2RGB)
 
-    plt.imshow(change_in_range(t, (-10.5071996 / 2), -2))
-    plt.show()
-    plt.savefig('../test.png')
+    new_image = (change_in_range(t, 195, 216))
+    cv2.imwrite('../test.png', new_image,)

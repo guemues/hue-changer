@@ -12,7 +12,7 @@ import argparse
 import huechanger
 import cv2
 
-from cv2 import COLOR_BGR2RGB
+from cv2 import COLOR_BGR2RGB, COLOR_RGB2BGR
 
 __author__ = "Orcun Gumus"
 
@@ -32,4 +32,5 @@ t = cv2.imread(args.path)
 t = cv2.cvtColor(t, COLOR_BGR2RGB)
 
 new_image = huechanger.change_in_range(t, min, max)
+new_image = cv2.cvtColor(new_image, COLOR_RGB2BGR)
 cv2.imwrite(args.opath, new_image)
