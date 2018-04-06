@@ -41,4 +41,21 @@ will be turn in to
 
 Enjoy with colors
 
+To change images without any coding:
+```
+optional arguments:
+  -h, --help     show this help message and exit
+  --path PATH    Input file path
+  --opath OPATH  Output file paht
+  --min MIN      360 degree min HUE
+  --max MAX      360 degree max HUE
+
+```
+
+```
+python changer.py --path ./uFPG2T.jpg --opath out.png --min 10 --max 100
+```
+
+
+
 This python package is implemented for an EPFL cognitive science semester course project.

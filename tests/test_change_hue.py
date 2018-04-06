@@ -1,5 +1,5 @@
-import cv2.cv2
-from cv2.cv2 import COLOR_BGR2HSV, COLOR_BGR2RGB, COLOR_RGB2HSV
+import cv2
+from cv2 import COLOR_BGR2HSV, COLOR_BGR2RGB, COLOR_RGB2HSV
 from huechanger import change_in_range
 import requests
 
@@ -10,9 +10,10 @@ def test_change_hue():
     filename = url.split("/")[-1]
     r = requests.get(url, timeout=1)
 
-    if r.status_code == 200:
-        with open(filename, 'wb') as f:
-            f.write(r.content)
+    assert r.status_code == 200
+
+    with open(filename, 'wb') as f:
+        f.write(r.content)
 
     t = cv2.imread(filename)
 
