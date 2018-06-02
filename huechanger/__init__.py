@@ -5,7 +5,7 @@ import matplotlib as mpl
 import cv2
 
 
-def change_in_range(texture, min_hue, max_hue):
+def change_in_range(texture, min_hue, max_hue, min_saturation, max_saturation):
     """
     Make images in between some hue ranges
 
@@ -16,25 +16,30 @@ def change_in_range(texture, min_hue, max_hue):
     min_hue = int(min_hue / 2)
     max_hue = int(max_hue / 2)
 
+    do_sat = True
+    if max_saturation == 255:
+        do_sat = False
+
     hsv_texture = cv2.cvtColor(texture, COLOR_RGB2HSV)
     hue_array = hsv_texture[:, :, 0]
-    # saturation_array = hsv_texture[:, :, 1]
+    saturation_array = hsv_texture[:, :, 1]
     # L_array = hsv_texture[:, :, 2]
 
     defined_hue_variance = max_hue - min_hue
-    # defined_saturation_variance = max_saturation - min_saturation
+    defined_saturation_variance = max_saturation - min_saturation
     # defined_L_variance = max_L - min_L
 
     texture_hue_variance = np.max(hue_array) - np.min(hue_array)
-    # texture_saturation_variance = np.max(hue_array) - np.min(hue_array)
+    texture_saturation_variance = np.max(hue_array) - np.min(hue_array)
     # texture_L_variance = np.max(hue_array) - np.min(hue_array)
 
     hue_array = (defined_hue_variance / texture_hue_variance) * (hue_array - np.min(hue_array)) + min_hue
-    # saturation_array = (defined_saturation_variance / texture_saturation_variance) * (saturation_array - np.min(saturation_array)) + min_saturation
+    saturation_array = (defined_saturation_variance / texture_saturation_variance) * (saturation_array - np.min(saturation_array)) + min_saturation
     # L_array = (defined_L_variance / texture_L_variance) * (L_array - np.min(L_array)) + min_L
 
     hsv_texture[:, :, 0] = np.mod(hue_array, 180)
-    # hsv_texture[:, :, 1] = saturation_array
+    if do_sat:
+        hsv_texture[:, :, 1] = saturation_array
     # hsv_texture[:, :, 2] = L_array
 
     return cv2.cvtColor(hsv_texture, COLOR_HSV2RGB)
@@ -46,5 +51,5 @@ if __name__ == "__main__":
     t = cv2.imread('../uFPG2T.jpg')
     t = cv2.cvtColor(t, COLOR_BGR2RGB)
 
-    new_image = (change_in_range(t, 195, 216))
+    new_image = (change_in_range(t, 0, 360, 0, 0))
     cv2.imwrite('../test.png', new_image,)
